@@ -2,14 +2,18 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>拡張機能のタイトル</title>
-  <script src="popup.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@2.5.0/dist/daisyui.min.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <input type="text" id="input-text">
-  <div id="button-container"></div>
+  <div class="button-container" id="button-container"></div>
+  <div class="input-container">
+    <input type="text" id="input-text" placeholder="ここに入力してください">
+  </div>
+  <script src="popup.js"></script>
 </body>
 
 </html>
