@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "拡張機能の名前",
+  "version": "1.0",
+  "description": "拡張機能の説明",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "拡張機能のタイトル"
+  }
+}
