@@ -5,12 +5,8 @@ body {
   line-height: 1.5;
   background-color: #2b2d42;
   color: #f8f8f2;
-}
-
-h1 {
-  margin-top: 0;
-  text-align: center;
-  color: #f8f8f2;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 .button-container {
