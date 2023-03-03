@@ -1,26 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var buttonA = document.getElementById('button-a');
-  var buttonB = document.getElementById('button-b');
+  var buttons = [
+    {
+      name: 'ボタン1',
+      text: 'hoge1'
+    },
+    {
+      name: 'ボタン2',
+      text: 'hoge2'
+    },
+    {
+      name: 'ボタン3',
+      text: 'hoge3'
+    }
+  ];
+  var buttonContainer = document.getElementById('button-container');
   var inputText = document.getElementById('input-text');
+  var submitBtn = document.getElementById('submit-btn');
 
-  buttonA.addEventListener('click', function () {
-    var text = inputText.value + 'AAA';
-    copyToClipboard(text);
+  buttons.forEach(function (button) {
+    var btn = document.createElement('button');
+    btn.textContent = button.name;
+    btn.addEventListener('click', function () {
+      var text = inputText.value + button.text;
+      copyToClipboard(text);
+    });
+    buttonContainer.appendChild(btn);
   });
 
-  buttonB.addEventListener('click', function () {
-    var text = inputText.value + 'BBB';
+  submitBtn.addEventListener('click', function () {
+    var text = inputText.value + 'hogehoge';
     copyToClipboard(text);
   });
-
-  function copyToClipboard(text) {
-    var copyElement = document.createElement('textarea');
-    copyElement.style.opacity = '0';
-    copyElement.style.position = 'absolute';
-    copyElement.textContent = text;
-    document.body.appendChild(copyElement);
-    copyElement.select();
-    document.execCommand('copy');
-    document.body.removeChild(copyElement);
-  }
 });
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(function () {
+    console.log('コピーしました: ' + text);
+  }, function () {
+    console.error('コピーできませんでした: ' + text);
+  });
+}
