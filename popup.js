@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function showPopup() {
   var buttons = [
     {
       name: 'ボタン1',
@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
   var buttonContainer = document.getElementById('button-container');
   var inputText = document.getElementById('input-text');
-  var submitBtn = document.getElementById('submit-btn');
+
+  while (buttonContainer.firstChild) {
+    buttonContainer.removeChild(buttonContainer.firstChild);
+  }
 
   buttons.forEach(function (button) {
     var btn = document.createElement('button');
@@ -27,11 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
     buttonContainer.appendChild(btn);
   });
 
-  submitBtn.addEventListener('click', function () {
-    var text = inputText.value + 'hogehoge';
-    copyToClipboard(text);
-  });
-});
+  inputText.focus();
+}
 
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(function () {
@@ -40,3 +40,5 @@ function copyToClipboard(text) {
     console.error('コピーできませんでした: ' + text);
   });
 }
+
+document.addEventListener('DOMContentLoaded', showPopup);
