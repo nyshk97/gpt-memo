@@ -63,13 +63,13 @@ const copyToClipboard = text => {
 
 document.addEventListener('DOMContentLoaded', showPopup);
 
+// 入力値をlocal storageに保存する
+document.getElementById('input-text').addEventListener('keyup', () => {
+  const inputValue = document.getElementById('input-text').value;
+  chrome.storage.local.set({ inputValue });
+});
+
+// ページが読み込まれたときに、local storageから値を読み込んで入力フィールドに設定する
 chrome.storage.local.get(['inputValue'], result => {
   document.getElementById('input-text').value = result.inputValue || '';
 });
-
-const saveInputValue = () => {
-  const inputValue = document.getElementById('input-text').value;
-  chrome.storage.local.set({ inputValue });
-};
-
-document.getElementById('input-text').addEventListener('keyup', saveInputValue);
