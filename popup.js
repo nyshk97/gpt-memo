@@ -1,5 +1,5 @@
 function showPopup() {
-  var buttons = [
+  const buttons = [
     {
       name: 'というニュアンスの表現',
       text: 'というニュアンスの表現を10個考えてください'
@@ -33,18 +33,18 @@ function showPopup() {
       text: '面白い単語を10個教えてください'
     },
   ];
-  var buttonContainer = document.getElementById('button-container');
-  var inputText = document.getElementById('input-text');
+  const buttonContainer = document.getElementById('button-container');
+  const inputText = document.getElementById('input-text');
 
   while (buttonContainer.firstChild) {
     buttonContainer.removeChild(buttonContainer.firstChild);
   }
 
   buttons.forEach(function (button) {
-    var btn = document.createElement('button');
+    const btn = document.createElement('button');
     btn.textContent = button.name;
     btn.addEventListener('click', function () {
-      var text = inputText.value + button.text;
+      const text = inputText.value + button.text;
       copyToClipboard(text);
     });
     buttonContainer.appendChild(btn);
@@ -71,7 +71,7 @@ chrome.storage.local.get(['inputValue'], function (result) {
 
 // 入力値をストレージに保存する
 function saveInputValue() {
-  var inputValue = document.getElementById('input-text').value;
+  const inputValue = document.getElementById('input-text').value;
   chrome.storage.local.set({ inputValue: inputValue });
 }
 
