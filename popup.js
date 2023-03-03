@@ -1,17 +1,37 @@
 function showPopup() {
   var buttons = [
     {
-      name: 'ニュアンス',
+      name: 'というニュアンスの表現',
       text: 'というニュアンスの表現を10個考えてください'
     },
     {
-      name: 'テーマフレーズ',
+      name: 'というテーマで歌詞に使えるフレーズ',
       text: 'というテーマで歌詞を書くとき、使えそうなフレーズを10個考えてください'
     },
     {
-      name: 'ボタン3',
-      text: 'hoge3'
-    }
+      name: 'というフレーズと組み合わせて使えるフレーズ',
+      text: 'というフレーズと組み合わせて、歌詞に使えるフレーズを10個考えてください'
+    },
+    {
+      name: 'をおもしろく描写するフレーズ',
+      text: 'をおもしろおかしく描写するフレーズを10個考えてください'
+    },
+    {
+      name: 'に対する反論',
+      text: 'に対する反論を10個考えてください'
+    },
+    {
+      name: '架空の小説の書き出し',
+      text: '架空の小説の書き出しを10個考えてください'
+    },
+    {
+      name: '笑えるフレーズ',
+      text: '笑えるフレーズを10個考えてください'
+    },
+    {
+      name: '面白い単語',
+      text: '面白い単語を10個教えてください'
+    },
   ];
   var buttonContainer = document.getElementById('button-container');
   var inputText = document.getElementById('input-text');
