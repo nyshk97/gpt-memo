@@ -40,7 +40,7 @@ const showPopup = () => {
     buttonContainer.removeChild(buttonContainer.firstChild);
   }
 
-  buttons.forEach((button) => {
+  buttons.forEach(button => {
     const btn = document.createElement('button');
     btn.textContent = button.name;
     btn.addEventListener('click', () => {
@@ -53,7 +53,7 @@ const showPopup = () => {
   inputText.focus();
 };
 
-const copyToClipboard = (text) => {
+const copyToClipboard = text => {
   navigator.clipboard.writeText(text).then(() => {
     console.log('コピーしました: ' + text);
   }, () => {
@@ -63,13 +63,13 @@ const copyToClipboard = (text) => {
 
 document.addEventListener('DOMContentLoaded', showPopup);
 
-chrome.storage.local.get(['inputValue'], (result) => {
+chrome.storage.local.get(['inputValue'], result => {
   document.getElementById('input-text').value = result.inputValue || '';
 });
 
 const saveInputValue = () => {
   const inputValue = document.getElementById('input-text').value;
-  chrome.storage.local.set({ inputValue: inputValue });
+  chrome.storage.local.set({ inputValue });
 };
 
 document.getElementById('input-text').addEventListener('keyup', saveInputValue);
