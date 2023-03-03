@@ -45,20 +45,12 @@ const showPopup = () => {
     btn.textContent = button.name;
     btn.addEventListener('click', () => {
       const text = inputText.value + button.text;
-      copyToClipboard(text);
+      navigator.clipboard.writeText(text)
     });
     buttonContainer.appendChild(btn);
   });
 
   inputText.focus();
-};
-
-const copyToClipboard = text => {
-  navigator.clipboard.writeText(text).then(() => {
-    console.log('コピーしました: ' + text);
-  }, () => {
-    console.error('コピーできませんでした: ' + text);
-  });
 };
 
 document.addEventListener('DOMContentLoaded', showPopup);
