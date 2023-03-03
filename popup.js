@@ -62,3 +62,17 @@ function copyToClipboard(text) {
 }
 
 document.addEventListener('DOMContentLoaded', showPopup);
+
+
+// ページが読み込まれたときに、ストレージから値を読み込んで入力フィールドに設定する
+chrome.storage.local.get(['inputValue'], function (result) {
+  document.getElementById('input-text').value = result.inputValue || '';
+});
+
+// 入力値をストレージに保存する
+function saveInputValue() {
+  var inputValue = document.getElementById('input-text').value;
+  chrome.storage.local.set({ inputValue: inputValue });
+}
+
+document.getElementById('input-text').addEventListener('keyup', saveInputValue);
