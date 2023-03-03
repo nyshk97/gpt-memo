@@ -1,4 +1,4 @@
-function showPopup() {
+const showPopup = () => {
   const buttons = [
     {
       name: 'というニュアンスの表現',
@@ -40,10 +40,10 @@ function showPopup() {
     buttonContainer.removeChild(buttonContainer.firstChild);
   }
 
-  buttons.forEach(function (button) {
+  buttons.forEach((button) => {
     const btn = document.createElement('button');
     btn.textContent = button.name;
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', () => {
       const text = inputText.value + button.text;
       copyToClipboard(text);
     });
@@ -51,28 +51,25 @@ function showPopup() {
   });
 
   inputText.focus();
-}
+};
 
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(function () {
+const copyToClipboard = (text) => {
+  navigator.clipboard.writeText(text).then(() => {
     console.log('コピーしました: ' + text);
-  }, function () {
+  }, () => {
     console.error('コピーできませんでした: ' + text);
   });
-}
+};
 
 document.addEventListener('DOMContentLoaded', showPopup);
 
-
-// ページが読み込まれたときに、ストレージから値を読み込んで入力フィールドに設定する
-chrome.storage.local.get(['inputValue'], function (result) {
+chrome.storage.local.get(['inputValue'], (result) => {
   document.getElementById('input-text').value = result.inputValue || '';
 });
 
-// 入力値をストレージに保存する
-function saveInputValue() {
+const saveInputValue = () => {
   const inputValue = document.getElementById('input-text').value;
   chrome.storage.local.set({ inputValue: inputValue });
-}
+};
 
 document.getElementById('input-text').addEventListener('keyup', saveInputValue);
