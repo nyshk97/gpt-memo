@@ -1,12 +1,12 @@
 function showPopup() {
   var buttons = [
     {
-      name: 'ボタン1',
-      text: 'hoge1'
+      name: 'ニュアンス',
+      text: 'というニュアンスの表現を10個考えてください'
     },
     {
-      name: 'ボタン2',
-      text: 'hoge2'
+      name: 'テーマフレーズ',
+      text: 'というテーマで歌詞を書くとき、使えそうなフレーズを10個考えてください'
     },
     {
       name: 'ボタン3',
