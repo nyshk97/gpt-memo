@@ -35,7 +35,7 @@ body {
   margin-top: 16px;
 }
 
-.input-container input[type=text] {
+.input-container textarea {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #4e4b61;
