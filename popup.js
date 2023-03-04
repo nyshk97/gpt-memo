@@ -32,6 +32,10 @@ const showPopup = () => {
       name: '面白い単語',
       text: '面白い単語を10個教えてください'
     },
+    {
+      name: 'あと10',
+      text: 'あと10個教えてください'
+    },
   ];
   const buttonContainer = document.getElementById('button-container');
   const inputText = document.getElementById('input-text');
