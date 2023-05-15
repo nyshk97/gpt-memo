@@ -48,8 +48,12 @@ const showPopup = () => {
     const btn = document.createElement('button');
     btn.textContent = button.name;
     btn.addEventListener('click', () => {
-      const text = inputText.value + button.text;
-      navigator.clipboard.writeText(text)
+      const currentPos = inputText.selectionStart;
+      const beforeText = inputText.value.substring(0, currentPos);
+      const afterText = inputText.value.substring(currentPos);
+      const text = beforeText + button.text + afterText;
+      inputText.value = text;
+      inputText.select();
     });
     buttonContainer.appendChild(btn);
   });
